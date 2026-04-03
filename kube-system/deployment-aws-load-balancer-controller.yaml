@@ -32,6 +32,7 @@ spec:
           secretName: aws-load-balancer-tls
       securityContext:
         fsGroup: 65534
+      hostNetwork: true
       containers:
       - name: aws-load-balancer-controller
         args:
