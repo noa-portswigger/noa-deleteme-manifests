@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/version: 18.7.3
     teleport.dev/majorVersion: '18'
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: tls
     port: 443
