@@ -10,6 +10,11 @@ metadata:
     app.kubernetes.io/component: proxy
     app.kubernetes.io/version: 18.7.3
     teleport.dev/majorVersion: '18'
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: '*.noa-deleteme.playground.swigger.io,noa-deleteme.playground.swigger.io'
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: /
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: HTTP
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
   type: LoadBalancer
   ports:
