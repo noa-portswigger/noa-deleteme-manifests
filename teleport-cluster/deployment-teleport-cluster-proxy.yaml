@@ -11,7 +11,8 @@ metadata:
     app.kubernetes.io/version: 18.7.3
     teleport.dev/majorVersion: '18'
 spec:
-  replicas: 1
+  replicas: 2
+  minReadySeconds: 15
   selector:
     matchLabels:
       app.kubernetes.io/name: teleport-cluster
@@ -20,7 +21,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/config: 4b3159e5db1d85071a88061248854be2b64275193620f685079c945c090000a1
+        checksum/config: 45e29b2fe96224c082df8b25fff72c41fcc5173d4d9a81a0c2df3f131e3a8924
       labels:
         app.kubernetes.io/name: teleport-cluster
         app.kubernetes.io/instance: teleport-cluster
@@ -118,6 +119,9 @@ spec:
               - duration
               - 30s
         volumeMounts:
+        - mountPath: /etc/teleport-tls
+          name: teleport-tls
+          readOnly: true
         - mountPath: /etc/teleport
           name: config
           readOnly: true
@@ -143,6 +147,9 @@ spec:
               - path: namespace
                 fieldRef:
                   fieldPath: metadata.namespace
+      - name: teleport-tls
+        secret:
+          secretName: teleport-tls
       - name: config
         configMap:
           name: teleport-cluster-proxy

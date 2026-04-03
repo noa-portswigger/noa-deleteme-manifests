@@ -33,13 +33,13 @@ data:
         - webauthn
         type: local
         webauthn:
-          rp_id: teleport.noa-deleteme.swigger.io
-      cluster_name: teleport.noa-deleteme.swigger.io
+          rp_id: noa-deleteme.playground.swigger.io
+      cluster_name: noa-deleteme.playground.swigger.io
       enabled: true
       proxy_listener_mode: separate
     kubernetes_service:
       enabled: true
-      kube_cluster_name: teleport.noa-deleteme.swigger.io
+      kube_cluster_name: noa-deleteme.playground.swigger.io
       listen_addr: 0.0.0.0:3026
       public_addr: teleport-cluster-auth.teleport-cluster.svc.cluster.local:3026
     proxy_service:
