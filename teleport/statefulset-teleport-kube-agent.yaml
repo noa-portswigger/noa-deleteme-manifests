@@ -114,6 +114,6 @@ spec:
           - serviceAccountToken:
               path: join-sa-token
               expirationSeconds: 600
-              audience: noa-deleteme
+              audience: noa-deleteme.playground.swigger.io
       - name: data
         emptyDir: {}
